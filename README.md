@@ -24,6 +24,10 @@
 
 ## Полезняшки
 
-Настройка проекта в pycharm:
+###### Настройка проекта в pycharm:
 
 `https://docs.google.com/document/d/19UgTDif72r4c72AK1ogfg8IMf8vje3-ygslNS9bjWyg/edit`
+
+
+###### Что такое *args и **kwargs:
+`https://habr.com/ru/company/ruvds/blog/482464/`
