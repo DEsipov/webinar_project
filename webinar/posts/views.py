@@ -43,6 +43,7 @@ def post_create(request):
     post.save()
     return redirect("posts:post_detail", post.id)
 
+
 @login_required
 def post_edit(request, post_id):
     """Страница редактирования поста."""
@@ -63,3 +64,14 @@ def post_edit(request, post_id):
         "is_edit": True,
     }
     return render(request, template, context)
+
+
+@login_required
+def post_delete(request, post_id):
+    """Страница редактирования поста."""
+    post = get_object_or_404(Post, id=post_id)
+    if post_id and request.user != post.author:
+        return redirect("posts:post_detail", post_id=post_id)
+
+    post.delete()
+    return redirect("posts:index", post_id=post_id)
