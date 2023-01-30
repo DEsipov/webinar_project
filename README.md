@@ -17,10 +17,11 @@
 1. Создать суперюзера `./manage.py createmigrations`
 1. Запустить сервер `./manage.py runserver`
 
-## FBV (todo)
+## FBV
+`webinar/posts/views.py`
 
-## CBV (todo)
-
+## CBV
+`webinar/posts/views_cbv.py`
 
 ## Полезняшки
 
@@ -31,3 +32,11 @@
 
 ###### Что такое *args и **kwargs:
 `https://habr.com/ru/company/ruvds/blog/482464/`
+
+
+###### Шпора CBV
+https://docs.google.com/document/d/18qB9GxxQueJkh9_usJHbgjzx1FcRhFzd2ogW2TOKyBY/edit#
+
+
+###### Доки CBV
+https://docs.djangoproject.com/en/4.1/topics/class-based-views/intro/
