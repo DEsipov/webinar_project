@@ -8,19 +8,19 @@ from .utils import paginate_page
 
 def index(request):
     """Главная страница."""
-    template = "posts/index.html"
-    posts = Post.objects.select_related("group", "author")
+    template = 'posts/index.html'
+    posts = Post.objects.select_related('group', 'author')
     page_obj = paginate_page(request, posts)
-    context = {"page_obj": page_obj}
+    context = {'page_obj': page_obj}
     return render(request, template, context)
 
 
 def post_detail(request, post_id):
     """Страница детального просмотра поста."""
     post = get_object_or_404(Post, id=post_id)
-    template = "posts/post_detail.html"
+    template = 'posts/post_detail.html'
     context = {
-        "post": post,
+        'post': post,
     }
     return render(request, template, context)
 
@@ -32,36 +32,36 @@ def post_create(request):
         pass
 
     form = PostForm(request.POST or None)
-    if not request.method == "POST":
-        return render(request, "posts/create_post.html", {"form": form})
+    if not request.method == 'POST':
+        return render(request, 'posts/create_post.html', {'form': form})
 
     if not form.is_valid():
-        return render(request, "posts/create_post.html", {"form": form})
+        return render(request, 'posts/create_post.html', {'form': form})
 
     post = form.save(commit=False)
     post.author = request.user
     post.save()
-    return redirect("posts:post_detail", post.id)
+    return redirect('posts:post_detail', post.id)
 
 
 @login_required
 def post_edit(request, post_id):
     """Страница редактирования поста."""
-    template = "posts/create_post.html"
+    template = 'posts/create_post.html'
     post = get_object_or_404(Post, id=post_id)
 
     if post_id and request.user != post.author:
-        return redirect("posts:post_detail", post_id=post_id)
+        return redirect('posts:post_detail', post_id=post_id)
     form = PostForm(request.POST or None, instance=post)
 
     if form.is_valid():
         form.save()
-        return redirect("posts:post_detail", post_id)
+        return redirect('posts:post_detail', post_id)
 
     context = {
-        "form": form,
-        "post": post,
-        "is_edit": True,
+        'form': form,
+        'post': post,
+        'is_edit': True,
     }
     return render(request, template, context)
 
@@ -71,7 +71,7 @@ def post_delete(request, post_id):
     """Страница редактирования поста."""
     post = get_object_or_404(Post, id=post_id)
     if post_id and request.user != post.author:
-        return redirect("posts:post_detail", post_id=post_id)
+        return redirect('posts:post_detail', post_id=post_id)
 
     post.delete()
-    return redirect("posts:index", post_id=post_id)
+    return redirect('posts:index', post_id=post_id)

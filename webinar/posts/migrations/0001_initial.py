@@ -15,73 +15,73 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="Group",
+            name='Group',
             fields=[
                 (
-                    "id",
+                    'id',
                     models.AutoField(
                         auto_created=True,
                         primary_key=True,
                         serialize=False,
-                        verbose_name="ID",
+                        verbose_name='ID',
                     ),
                 ),
                 (
-                    "title",
-                    models.CharField(max_length=200, verbose_name="Заголовок группы"),
+                    'title',
+                    models.CharField(max_length=200, verbose_name='Заголовок группы'),
                 ),
-                ("slug", models.SlugField(unique=True, verbose_name="слаг для урла")),
-                ("description", models.TextField(verbose_name="Описание группы")),
+                ('slug', models.SlugField(unique=True, verbose_name='слаг для урла')),
+                ('description', models.TextField(verbose_name='Описание группы')),
             ],
             options={
-                "verbose_name": "Группа",
-                "verbose_name_plural": "Группы",
+                'verbose_name': 'Группа',
+                'verbose_name_plural': 'Группы',
             },
         ),
         migrations.CreateModel(
-            name="Post",
+            name='Post',
             fields=[
                 (
-                    "id",
+                    'id',
                     models.AutoField(
                         auto_created=True,
                         primary_key=True,
                         serialize=False,
-                        verbose_name="ID",
+                        verbose_name='ID',
                     ),
                 ),
-                ("text", models.TextField(verbose_name="Текст поста")),
+                ('text', models.TextField(verbose_name='Текст поста')),
                 (
-                    "pub_date",
+                    'pub_date',
                     models.DateTimeField(
-                        auto_now_add=True, verbose_name="Дата публикации"
+                        auto_now_add=True, verbose_name='Дата публикации'
                     ),
                 ),
                 (
-                    "author",
+                    'author',
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        related_name="posts",
+                        related_name='posts',
                         to=settings.AUTH_USER_MODEL,
-                        verbose_name="Автор поста",
+                        verbose_name='Автор поста',
                     ),
                 ),
                 (
-                    "group",
+                    'group',
                     models.ForeignKey(
                         blank=True,
                         null=True,
                         on_delete=django.db.models.deletion.SET_NULL,
-                        related_name="posts",
-                        to="posts.Group",
-                        verbose_name="Группа, в которой находится пост",
+                        related_name='posts',
+                        to='posts.Group',
+                        verbose_name='Группа, в которой находится пост',
                     ),
                 ),
             ],
             options={
-                "verbose_name": "Пост",
-                "verbose_name_plural": "Посты",
-                "ordering": ("-pub_date",),
+                'verbose_name': 'Пост',
+                'verbose_name_plural': 'Посты',
+                'ordering': ('-pub_date',),
             },
         ),
     ]

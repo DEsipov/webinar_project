@@ -1,11 +1,3 @@
-## Декораторы
-
-#### Примеры декораторов находятся тут:
-`webinar/utils/decorators`
-
-#### Шпора:
-`https://docs.google.com/document/d/11Rl3RuipECq4WDZ6_XvXHy9ecSNFC6gEediSx6fLrgY/edit?usp=sharing`
-
 ## Запуск проекта.
 
 1. Создать вирт. окружение.
@@ -40,3 +32,12 @@ https://docs.google.com/document/d/18qB9GxxQueJkh9_usJHbgjzx1FcRhFzd2ogW2TOKyBY/
 
 ###### Доки CBV
 https://docs.djangoproject.com/en/4.1/topics/class-based-views/intro/
+
+
+## Декораторы
+
+#### Примеры декораторов находятся тут:
+`webinar/utils/decorators`
+
+#### Шпора:
+`https://docs.google.com/document/d/11Rl3RuipECq4WDZ6_XvXHy9ecSNFC6gEediSx6fLrgY/edit?usp=sharing`
