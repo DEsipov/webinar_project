@@ -15,12 +15,12 @@ urlpatterns = [
     path('posts/<int:post_id>/delete/', views.post_delete, name='post_delete'),
 
     # CRUD посты CBV
-    path('cbv/', PostListView.as_view(), name='index'),
+    path('cbv/', PostListView.as_view(), name='index_cbv'),
     path('cbv/posts/<int:post_id>/', PostDetailView.as_view(),
-         name='post_detail'),
-    path('cbv/create/', CreatePostView.as_view(), name='post_create'),
+         name='post_detail_cbv'),
+    path('cbv/create/', CreatePostView.as_view(), name='post_create_cbv'),
     path('cbv/posts/<int:post_id>/edit/', PostUpdateView.as_view(),
-         name='post_edit'),
+         name='post_edit_cbv'),
     path('cbv/posts/<int:post_id>/delete/', PostDeleteView.as_view(),
-         name='post_delete'),
+         name='post_delete_cbv'),
 ]

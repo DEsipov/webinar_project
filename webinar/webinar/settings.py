@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
 
     'posts',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 POSTS_PER_PAGE = 10
 
 LOGIN_REDIRECT_URL = 'posts:index'
+
+AUTH_USER_MODEL = 'users.User'
