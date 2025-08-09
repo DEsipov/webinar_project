@@ -4,6 +4,8 @@ from django.urls import reverse
 
 User = get_user_model()
 
+LIMIT_LETTER = 15
+
 
 class Group(models.Model):
     """Модель для групп."""
@@ -44,3 +46,6 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('posts:post_detail', kwargs={'post_id': self.pk})
+
+    def __str__(self):
+        return f'{self.text[:LIMIT_LETTER]}'
